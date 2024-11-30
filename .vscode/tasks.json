@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build TailWind",
+            "type": "shell",
+            "command": "tailwindCLI.exe -i .\\css\\style.css -o .\\css\\tailwind\\output.css --watch",
+            "problemMatcher": []
+        }
+    ]
+}
