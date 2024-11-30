@@ -1,13 +1,17 @@
-// THIS FILE IS FOR VSCODE AUTO COMPLETION.
-// Since I'm not using node I have to duplicate all configuration here aswell in order for
-// autocompletion to work.
-
+// USING STANDALONE TAILWIND CLI 
 
 module.exports = {
+    content: [
+      './**/*.{html,js,css}',
+    ],
     theme: {
       extend: {
         colors: {
+          clifford: "#23FACB"
         }
       }
-    }
+    },
+    plugins: [
+      require('@tailwindcss/forms'),
+    ]
 }
