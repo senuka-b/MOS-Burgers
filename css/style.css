@@ -1,13 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    body {
-        @apply bg-slate-600;
-    }
-}
 
 @layer components {
+    .background-default {
+        @apply bg-gradient-to-l from-[#E63946] from-0% to-[#F4A261] to-100%;
+        
+    }
+    .navbar-header {
+        font-size: 80px;
+        font-family: 'La Belle Aurore', cursive;
+        color: white;
+        position: relative;
+    }
+
+    .navbar-header::before {
+        content: "MOS Burgers";
+        position: absolute;
+        top: 0px;  /* Adjust to control shadow position */
+        left: 0px;
+        color: #d67323; /* Shadow color */
+        z-index: -1;
+        text-shadow: 
+            1px 1px 0 #c76220, 
+            2px 2px 0 #b5581d, 
+            3px 3px 0 #a54e1b, 
+            4px 4px 0 #943f18;
+    }
+
     
 }

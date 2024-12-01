@@ -8,6 +8,9 @@ module.exports = {
       extend: {
         colors: {
           clifford: "#23FACB"
+        },
+        fontFamily : {
+          "aurore" : ["'La Belle Aurore'", "cursive"]
         }
       }
     },
