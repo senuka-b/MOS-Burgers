@@ -10,7 +10,8 @@ module.exports = {
           clifford: "#23FACB"
         },
         fontFamily : {
-          "aurore" : ["'La Belle Aurore'", "cursive"]
+          "aurore" : ["'La Belle Aurore'", "cursive"],
+          "madimi": ["'Madimi One'"]
         }
       }
     },
