@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,24 +13,29 @@
         
     }
     .navbar-header {
-        font-size: 80px;
-        font-family: 'La Belle Aurore', cursive;
-        color: white;
-        position: relative;
+        @apply text-[80px] font-aurore text-white relative;
+
     }
 
     .navbar-header::before {
         content: "MOS Burgers";
         position: absolute;
-        top: 0px;  /* Adjust to control shadow position */
+        top: 0px; 
         left: 0px;
-        color: #d67323; /* Shadow color */
+        color: #d67323; 
         z-index: -1;
         text-shadow: 
             1px 1px 0 #c76220, 
             2px 2px 0 #b5581d, 
             3px 3px 0 #a54e1b, 
             4px 4px 0 #943f18;
+    }
+
+    .button-primary {
+        @apply bg-[#07EDA8] rounded-xl h-fit p-2 pl-4 pt-2 pr-12 font-itim text-[#363636]/[.70] text-2xl sm:text-[31px]
+                transition ease-out duration-300 transform hover:scale-105 hover:text-white hover:bg-[#F4A261] hover:border-red-400
+                hover:shadow-[#E63946] hover:shadow-2xl hover:cursor-pointer flex items-center
+
     }
 
     

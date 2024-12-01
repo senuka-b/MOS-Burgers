@@ -11,7 +11,8 @@ module.exports = {
         },
         fontFamily : {
           "aurore" : ["'La Belle Aurore'", "cursive"],
-          "madimi": ["'Madimi One'"]
+          "madimi": ["'Madimi One'"],
+          "itim": ["Itim"]
         }
       }
     },
