@@ -50,12 +50,12 @@ function activateHomePageItemCaroussel(){
         
         let slide = `
         <div class="swiper-slide">
-            <div class="bg-indigo-50 rounded-2xl h-64 w-[418px] flex overflow-hidden justify-center items-center
+            <div class="bg-indigo-50 rounded-2xl h-64 flex overflow-hidden justify-center items-center
              transform transition ease-out duration-200 hover:scale-105 hover:shadow-lg hover:shadow-red-600">
                 <div class=" flex flex-row items-end pt-60">
                     <div class="absolute  pl-7 bg-red-400 bg-opacity-25 w-full">
 
-                        <span class="text-[24px] font-itim text-white block">${item.name}</span>
+                        <span class="text-[21px] font-itim text-white block">${item.name}</span>
                         <span class="text-[20px] font-itim text-white ">Rs. ${item.price}</span>
                     </div>
                 </div>
