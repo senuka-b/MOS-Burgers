@@ -59,3 +59,56 @@ const foodItems = {
     ]
 };
 
+function shuffleArray(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+function getRandomItemArray(){
+    let allItems = [];
+
+    for (let item in foodItems) {
+        let category = foodItems[item];
+        allItems.push(...shuffleArray(category));
+    }
+
+    return allItems;
+}
+
+function getImageURL(itemCode) {
+    const itemNumber = parseInt(itemCode.substring(1)) - 1000;
+    
+    const base = "assets/food/";
+
+    const classicBurgers = [1, 2];
+    const chickenBurgers = [4, 5, 13, 14];
+    const cheeseBurgers = [6, 7];
+    const specialBurgers = [3, 8, 9, 10, 12, 15];
+
+    const chickenSubmarines = [16, 17, 18, 19];
+    const otherSubmarines = [20, 21, 22, 23, 24];
+
+    const fries = [25, 26, 27, 28, 29, 30];
+    const pasta = [31, 32, 33, 34, 35, 36, 37];
+    const friedChicken = [38, 39, 40];
+    const otherChicken = [41, 42, 43];
+    const beverages = [44, 45, 46, 47];
+
+    if (classicBurgers.includes(itemNumber)) return base + "burger/classic_burger.jpg"; 
+    if (chickenBurgers.includes(itemNumber)) return base + "burger/chicken_burger.jpg";
+    if (cheeseBurgers.includes(itemNumber)) return base + "burger/cheese_burger.jpg";
+    if (specialBurgers.includes(itemNumber)) return base + "burger/special_burger.jpg";
+
+    if (chickenSubmarines.includes(itemNumber)) return base + "submarine/chicken_submarine.jpg";
+    if (otherSubmarines.includes(itemNumber)) return base + "submarine/other_submarine.jpg";
+
+    if (fries.includes(itemNumber)) return base + "fries/fries.jpg";
+
+    if (pasta.includes(itemNumber)) return base + "pasta/pasta.jpg";
+
+    if (friedChicken.includes(itemNumber)) return base + "chicken/fried_chicken.jpg";
+    if (otherChicken.includes(itemNumber)) return base + "chicken/other_chicken.jpg";
+
+    if (beverages.includes(itemNumber)) return base + "beverages/soda.jpg";
+
+    return base + "default/food_default.jpg";
+}

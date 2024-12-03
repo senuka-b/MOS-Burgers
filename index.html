@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MOS Burgers 🍔🍉</title>
 <link rel="stylesheet" href="css/tailwind/output.css">
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
 
 </head>
 
@@ -54,12 +55,12 @@
         </div>
 
         <!-- WELCOME & COLLECTION SECTION -->
-        <div class="grid w-full grid-rows-2">
+        <div class="grid w-full grid-rows-auto">
             <div class="flex justify-center">
                 <div class="font-madimi text-white text-[71px] mt-[84px]">Welcome!</div>
             </div>
-            <div class="flex justify-center">
-                <a class="button-primary" href="/collection.html">
+            <div class="flex justify-center h-fit pb-12">
+                <a class="button bg-[#07EDA8] hover:bg-[#F4A261] hover:border-red-400" href="/collection.html">
                     Browse the Collection!
                     <span class="inline-block ml-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
@@ -71,8 +72,27 @@
             </div>
         </div>
 
+        <!-- CAROUSEL PRODUCTS -->
+        <div class="mx-20 px-10 bg-white bg-opacity-[5%]">
+
+         <div class="w-full">
+            <div class="swiper home-page-item-carousel swiper-container relative">
+              <div class="swiper-wrapper pt-20 pb-10">
+                  
+                <!-- Random food items go here -->
+                
+                
+              </div>
+            </div>
+            
+        </div>
+    </div>
+
+
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/app.js"></script>
 </body>
 

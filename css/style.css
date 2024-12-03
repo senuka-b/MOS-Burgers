@@ -31,9 +31,9 @@
             4px 4px 0 #943f18;
     }
 
-    .button-primary {
-        @apply bg-[#07EDA8] rounded-xl h-fit p-2 pl-4 pt-2 pr-12 font-itim text-[#363636]/[.70] text-2xl sm:text-[31px]
-                transition ease-out duration-300 transform hover:scale-105 hover:text-white hover:bg-[#F4A261] hover:border-red-400
+    .button {
+        @apply  rounded-xl h-fit p-2 pl-4 pt-2 pr-12 font-itim text-[#363636]/[.70] text-2xl sm:text-[31px]
+                transition ease-out duration-300 transform hover:scale-105 hover:text-white 
                 hover:shadow-[#E63946] hover:shadow-2xl hover:cursor-pointer flex items-center
 
     }
