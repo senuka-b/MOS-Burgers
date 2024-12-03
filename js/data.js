@@ -71,7 +71,7 @@ function getRandomItemArray(){
         allItems.push(...shuffleArray(category));
     }
 
-    return allItems;
+    return shuffleArray(allItems);
 }
 
 function getImageURL(itemCode) {
@@ -108,7 +108,14 @@ function getImageURL(itemCode) {
     if (friedChicken.includes(itemNumber)) return base + "chicken/fried_chicken.jpg";
     if (otherChicken.includes(itemNumber)) return base + "chicken/other_chicken.jpg";
 
-    if (beverages.includes(itemNumber)) return base + "beverages/soda.jpg";
+    if (beverages.includes(itemNumber)) {
+        base += "beverages/";
+
+        if (itemCode == 44) return base + "pepsi.jpg";
+        if (itemCode == 45) return base + "coke.jpg";
+        if (itemCode == 46) return base + "sprite.jpg";
+        if (itemCode == 47) return base + "mirinda.jpg";
+    };
 
     return base + "default/food_default.jpg";
 }
