@@ -53,7 +53,7 @@ function activateHomePageItemCaroussel(){
             <div class="bg-indigo-50 rounded-2xl h-64 flex overflow-hidden justify-center items-center
              transform transition ease-out duration-200 hover:scale-105 hover:shadow-lg hover:shadow-red-600">
                 <div class=" flex flex-row items-end pt-60">
-                    <div class="absolute  pl-7 bg-red-400 bg-opacity-25 w-full">
+                    <div class="absolute  pl-7 bg-red-400 bg-opacity-[0.26] w-full">
 
                         <span class="text-[21px] font-itim text-white block">${item.name}</span>
                         <span class="text-[20px] font-itim text-white ">Rs. ${item.price}</span>

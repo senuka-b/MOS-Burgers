@@ -793,6 +793,7 @@ select{
   height: fit-content;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   align-items: center;
+  justify-content: space-between;
   border-radius: 0.75rem;
   padding: 0.5rem;
   padding-left: 1rem;
@@ -951,6 +952,10 @@ select{
   margin-top: 0.75rem;
 }
 
+.mt-32{
+  margin-top: 8rem;
+}
+
 .mt-5{
   margin-top: 1.25rem;
 }
@@ -961,6 +966,18 @@ select{
 
 .mt-\[84px\]{
   margin-top: 84px;
+}
+
+.ml-1{
+  margin-left: 0.25rem;
+}
+
+.ml-5{
+  margin-left: 1.25rem;
+}
+
+.ml-9{
+  margin-left: 2.25rem;
 }
 
 .block{
@@ -1008,6 +1025,21 @@ select{
 .size-8{
   width: 2rem;
   height: 2rem;
+}
+
+.size-10{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.size-9{
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.size-7{
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .\!h-12{
@@ -1125,6 +1157,10 @@ select{
   flex-shrink: 1;
 }
 
+.basis-0{
+  flex-basis: 0px;
+}
+
 .basis-full{
   flex-basis: 100%;
 }
@@ -1216,6 +1252,14 @@ select{
   justify-content: space-between;
 }
 
+.justify-around{
+  justify-content: space-around;
+}
+
+.justify-evenly{
+  justify-content: space-evenly;
+}
+
 .gap-0{
   gap: 0px;
 }
@@ -1269,6 +1313,11 @@ select{
 .bg-\[\#552E2E\]{
   --tw-bg-opacity: 1;
   background-color: rgb(85 46 46 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#FFE5B4\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 229 180 / var(--tw-bg-opacity, 1));
 }
 
 .bg-indigo-50{
@@ -1342,6 +1391,10 @@ select{
 
 .bg-opacity-95{
   --tw-bg-opacity: 0.95;
+}
+
+.bg-opacity-\[0\.26\]{
+  --tw-bg-opacity: 0.26;
 }
 
 .bg-opacity-\[5\%\]{
@@ -1499,6 +1552,10 @@ select{
   padding-left: 3.5rem;
 }
 
+.pl-20{
+  padding-left: 5rem;
+}
+
 .pl-24{
   padding-left: 6rem;
 }
@@ -1521,6 +1578,10 @@ select{
 
 .pt-1{
   padding-top: 0.25rem;
+}
+
+.pt-14{
+  padding-top: 3.5rem;
 }
 
 .pt-2{
@@ -1553,6 +1614,26 @@ select{
 
 .pt-72{
   padding-top: 18rem;
+}
+
+.pl-9{
+  padding-left: 2.25rem;
+}
+
+.pl-1{
+  padding-left: 0.25rem;
+}
+
+.pl-2{
+  padding-left: 0.5rem;
+}
+
+.pb-1{
+  padding-bottom: 0.25rem;
+}
+
+.pb-0{
+  padding-bottom: 0px;
 }
 
 .font-aurore{
@@ -1820,6 +1901,22 @@ select{
     padding-left: 6rem;
   }
 
+  .sm\:pt-20{
+    padding-top: 5rem;
+  }
+
+  .sm\:pb-2{
+    padding-bottom: 0.5rem;
+  }
+
+  .sm\:pb-1{
+    padding-bottom: 0.25rem;
+  }
+
+  .sm\:pb-0{
+    padding-bottom: 0px;
+  }
+
   .sm\:text-5xl{
     font-size: 3rem;
     line-height: 1;
@@ -1846,6 +1943,10 @@ select{
 @media (min-width: 1024px){
   .lg\:mt-0{
     margin-top: 0px;
+  }
+
+  .lg\:mt-32{
+    margin-top: 8rem;
   }
 
   .lg\:grid-cols-2{
