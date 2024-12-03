@@ -4,7 +4,7 @@
         {
             "label": "Build TailWind",
             "type": "shell",
-            "command": "tailwindCLI.exe -i .\\css\\style.css -o .\\css\\tailwind\\output.css --watch",
+            "command": "tailwindCLI.exe -i .\\css\\style.css -o .\\css\\tailwind\\output.css --watch -m",
             "problemMatcher": []
         }
     ]
