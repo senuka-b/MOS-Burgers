@@ -9,9 +9,9 @@ function setup() {
 
 function activateHomePageItemCaroussel(){
 
-    new Swiper(".home-page-item-carousel", {
+    let swiper = new Swiper(".home-page-item-carousel", {
         loop: true,
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 20,
         autoplay: {
             delay: 1200,
@@ -21,31 +21,34 @@ function activateHomePageItemCaroussel(){
           nextEl: ".home-page-item-carousel .swiper-button-next",
           prevEl: ".home-page-item-carousel .swiper-button-prev",
         },
-        // breakpoints: {
-        //     1920: {
-        //       slidesPerView: 4,
-        //       spaceBetween: 30
-        //     },
-        //     1028: {
-        //       slidesPerView: 5,
-        //       spaceBetween: 10
-        //     },
-        //     990: {
-        //       slidesPerView: 1,
-        //       spaceBetween: 0
-        //     }
-        // }
+        breakpoints: {
+            400: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+            },
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+        },
+  
          
         
     });
-
-    let carousel = document.querySelector(".swiper-wrapper");
     
     let itemArray = getRandomItemArray();
     itemArray.forEach((item) => {
         console.log(getImageURL(item.code));
         
-        carousel.innerHTML += `
+        let slide = `
         <div class="swiper-slide">
             <div class="bg-indigo-50 rounded-2xl h-64 w-[418px] flex overflow-hidden justify-center items-center
              transform transition ease-out duration-200 hover:scale-105 hover:shadow-lg hover:shadow-red-600">
@@ -55,12 +58,14 @@ function activateHomePageItemCaroussel(){
                         <span class="text-[24px] font-itim text-white block">${item.name}</span>
                         <span class="text-[20px] font-itim text-white ">Rs. ${item.price}</span>
                     </div>
-                    </div>
+                </div>
                 <img src="${getImageURL(item.code)}" class="object-cover w-full h-full" alt="">
             </div>
         </div>
         
         `
+
+        swiper.appendSlide(slide);
     });
 
 }
