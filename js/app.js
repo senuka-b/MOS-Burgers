@@ -3,6 +3,7 @@ setup();
 
 function setup() {
     activateHomePageItemCaroussel();
+    activateHomePageBranchesCarousel();
     
 }
 
@@ -46,7 +47,6 @@ function activateHomePageItemCaroussel(){
     
     let itemArray = getRandomItemArray();
     itemArray.forEach((item) => {
-        console.log(getImageURL(item.code));
         
         let slide = `
         <div class="swiper-slide">
@@ -68,5 +68,59 @@ function activateHomePageItemCaroussel(){
         swiper.appendSlide(slide);
     });
 
+}
+
+function activateHomePageBranchesCarousel() {
+    let swiper = new Swiper(".home-page-branches-carousel", {
+        loop: false,
+        slidesPerView: 1,
+        spaceBetween: 0     ,
+ 
+        navigation: {
+          nextEl: ".home-page-branches-carousel .swiper-button-next",
+          prevEl: ".home-page-branches-carousel .swiper-button-prev",
+        },
+  
+      
+  
+         
+        
+    });
+    
+    let branchesArray = getBranches();
+    branchesArray.forEach((branch) => {
+        
+        console.log(branch);
+        
+
+        let slide = `
+        <div class="swiper-slide">
+                                
+            <div class="flex flex-col md:flex-row justify-between overflow-hidden">
+
+                <div>
+
+                    <div class="text-2xl sm:text-4xl font-semibold bg-red-400 bg-opacity-40 h-fit px-10 py-2 pr-20 rounded-xl
+                    ">
+                        ${branch.name}
+                    </div>
+
+                    <div class="font-mono block py-6 text-xl sm:text-2xl">
+                        ${branch.description}
+                    </div>
+                </div>
+
+
+                <img src="${branch.image}" class="object-contain relative rounded-lg w-fit md:w-[50%]" alt="">
+
+
+            </div>
+
+        </div>
+        
+        `
+
+        swiper.appendSlide(slide);
+    });
 }
 

@@ -59,6 +59,26 @@ const foodItems = {
     ]
 };
 
+const branches = [
+    {
+        name: "MOS Burgers",
+        image: "assets/branches/main.webp",
+        type: "Main Branch",
+        description: "The main branch, where it all started. Located in Panadura near the the police station."
+    },
+    {
+        name: "MOS Little Burgers",
+        image: "assets/branches/sub1.webp",
+        type: "Sub Branch",
+        description: "Sub branch located in Colombo, with a simple, subtle yet beautiful atmosphere."
+    },
+
+];
+
+function getBranches() {
+    return branches;
+}
+
 function shuffleArray(array) {
     return array.sort(() => Math.random() - 0.5);
 }
@@ -77,7 +97,7 @@ function getRandomItemArray(){
 function getImageURL(itemCode) {
     const itemNumber = parseInt(itemCode.substring(1)) - 1000;
     
-    const base = "assets/food/";
+    let base = "assets/food/";
 
     const classicBurgers = [1, 2];
     const chickenBurgers = [4, 5, 13, 14];
@@ -111,11 +131,11 @@ function getImageURL(itemCode) {
     if (beverages.includes(itemNumber)) {
         base += "beverages/";
 
-        if (itemCode == 44) return base + "pepsi.jpg";
-        if (itemCode == 45) return base + "coke.jpg";
-        if (itemCode == 46) return base + "sprite.jpg";
-        if (itemCode == 47) return base + "mirinda.jpg";
+        if (itemNumber == 44) return base + "pepsi.jpg";
+        if (itemNumber == 45) return base + "coke.jpg";
+        if (itemNumber == 46) return base + "sprite.png";
+        if (itemNumber == 47) return base + "miranda.jpg";
     };
 
-    return base + "default/food_default.jpg";
+    return base + "food/food_default.jpg";
 }
