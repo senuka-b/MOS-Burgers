@@ -14,6 +14,7 @@ function setup() {
     username.innerText = getCurrentUser().username;
     customerName.value = getCurrentUser().username;
 
+    addEventListeners();
     updateOrderID();
     initalizeSwipers();
 
@@ -60,7 +61,7 @@ function updateItems() {
     });
 }
 
-function updateQuantities() {
+function removeQuantities() {
 
     let currentUser = getCurrentUser();
 
@@ -75,7 +76,6 @@ function updateQuantities() {
 
                     console.log("currentFoodItems", currentFoodItems);
 
-
                     return currentFoodItems[category][index].quantity;
                 }
             })
@@ -87,16 +87,75 @@ function updateQuantities() {
 
 }
 
+function restoreQuantities() {
+
+    let currentUser = getCurrentUser();
+
+    let userItems = currentUser.orders.map(order => order.items).flat();
+
+    userItems.forEach((uItem) => {
+        for (category in currentFoodItems) {
+            let foodCategory = currentFoodItems[category];
+            foodCategory.forEach((item, index) => {
+                if (item.code === uItem.itemCode) {
+                    currentFoodItems[category][index].quantity += 1;
+
+                    console.log("currentFoodItems", currentFoodItems);
+
+                    return currentFoodItems[category][index].quantity;
+                }
+            })
+        }
+    });
+    
+        
+    
+    
+}
+
+function addEventListeners(){
+
+    function updateValues(key, value) {
+        let user = getCurrentUser();
+
+        if (user.orders) {
+            user.orders = user.orders.map((order) =>  {
+                if (order.orderID === getOrderID()) {
+                    
+                    order[key] = value;                    
+                }
+                return order;
+
+            })
+
+            console.log("user" , user);
+            
+            setCurrentUser(user);
+        }
+
+
+    }
+
+    document.getElementById("customerName").addEventListener('input',
+         function (_) {
+            
+            updateValues("customerName", this.value);
+
+    });
+
+    document.getElementById("telephoneNumber").addEventListener('input',
+        function (_) {
+           updateValues("telephoneNumber", this.value);
+   })
+}
+
 
 function addItem(itemCode) {
     let orderID = getOrderID();
 
     let user = getCurrentUser();
 
-    
     let item = getItem(itemCode, currentFoodItems)
-
-    // MODAL QUANTITY
 
     console.log("ITEM", item);
 
@@ -105,11 +164,10 @@ function addItem(itemCode) {
         return;
     } 
 
-    updateQuantities();
+    removeQuantities();
 
 
     let index = user.orders.findIndex((order) => order.orderID === orderID);
-
 
     let order;
     if (index === -1) {
@@ -160,6 +218,8 @@ function removeItem(itemCode) {
     user.orders[index].items = user.orders[index].items.filter((item) => item.itemCode !== itemCode);
     
     user.orders.splice(index, user.orders[index]);
+
+    restoreQuantities();
 }
 
 function updateFoodItems() {
@@ -194,6 +254,7 @@ function placeOrder() {
 }
 
 function clearOrder() {
+    
 }
 
 function updateOrderID() {
