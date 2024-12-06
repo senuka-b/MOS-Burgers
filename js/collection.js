@@ -13,10 +13,15 @@ function setup() {
     username.innerText = getCurrentUser().username;
     customerName.value = getCurrentUser().username;
 
+    if (!getCurrentOrder()) {
+
+        createNewOrder();
+    }
+
     addEventListeners();
     updateOrderID();
+    updateItems();
     initalizeSwipers();
-
 }
 
 function initalizeSwipers() {
@@ -49,31 +54,54 @@ function updateSwipers(category) {
     
 }
 
+function getCurrentOrder() {
+    return JSON.parse(localStorage.getItem("currentOrder"));
+}
+
+function setCurrentOrder(order) {
+    localStorage.setItem("currentOrder", JSON.stringify(order));
+
+}
+
+function createNewOrder() {
+    
+    setCurrentOrder(
+        {
+            orderID: getOrderID(),
+            customerName: document.getElementById("customerName").value,
+            telephoneNumber: document.getElementById("telephoneNumber").value,
+            items: []
+            
+        }
+    );
+    
+    updateOrderID();
+}
+
 function updateItems() {
     let itemList = document.getElementById("items");
     itemList.innerHTML = "";
 
-    let orders = getCurrentUser().orders;
+    let items = getCurrentOrder().items;
 
-    orders.forEach((order) => {
+    items?.forEach((item) => {
         itemList.innerHTML += ``;
     });
 }
 
 function removeQuantities() {
 
-    let currentUser = getCurrentUser();
+    let currentOrder = getCurrentOrder();
 
-    let userItems = currentUser.orders.map(order => order.items).flat();
-
-    userItems.forEach((uItem) => {
+    currentOrder?.items.forEach((uItem) => {
         for (category in currentFoodItems) {
             let foodCategory = currentFoodItems[category];
             foodCategory.forEach((item, index) => {
-                if (item.code === uItem.itemCode) {
+
+                if (item.code === uItem.code) {
                     currentFoodItems[category][index].quantity -= 1;
 
-                    console.log("currentFoodItems", currentFoodItems);
+                    console.log("currentFoodItems quantity remove:", currentFoodItems);
 
                     return currentFoodItems[category][index].quantity;
                 }
@@ -81,25 +109,20 @@ function removeQuantities() {
         }
     });
 
-    
-
-
 }
 
 function restoreQuantities() {
 
-    let currentUser = getCurrentUser();
+    let currentOrder = getCurrentOrder();
 
-    let userItems = currentUser.orders.map(order => order.items).flat();
-
-    userItems.forEach((uItem) => {
+    currentOrder?.items.forEach((uItem) => {
         for (category in currentFoodItems) {
             let foodCategory = currentFoodItems[category];
             foodCategory.forEach((item, index) => {
                 if (item.code === uItem.itemCode) {
                     currentFoodItems[category][index].quantity += 1;
 
-                    console.log("currentFoodItems", currentFoodItems);
+                    console.log("currentFoodItems quantity restore:", currentFoodItems);
 
                     return currentFoodItems[category][index].quantity;
                 }
@@ -115,22 +138,11 @@ function restoreQuantities() {
 function addEventListeners(){
 
     function updateValues(key, value) {
-        let user = getCurrentUser();
+        let order = getCurrentOrder();
 
-        if (user.orders) {
-            user.orders = user.orders.map((order) =>  {
-                if (order.orderID === getOrderID()) {
-                    
-                    order[key] = value;                    
-                }
-                return order;
-
-            })
-            
-            setCurrentUser(user);
-        }
-
-
+        order[key] = value;
+        
+        setCurrentOrder(order);
     }
 
     document.getElementById("customerName").addEventListener('input',
@@ -148,46 +160,41 @@ function addEventListeners(){
 
 
 function addItem(itemCode) {
-    let orderID = getOrderID();
 
-    let user = getCurrentUser();
+    let currentOrder = getCurrentOrder();
 
     let item = getItem(itemCode, currentFoodItems)
 
-    console.log("ITEM", item);
+    console.log("Added item:", item);
 
-    if (item.quantity-1 <= 0) {
+    if (item.quantity <= 0) {
         alert("Not enough quantity");
         return;
     } 
 
-    removeQuantities();
-
-
-    let index = user.orders.findIndex((order) => order.orderID === orderID);
-
-    let order;
-    if (index === -1) {
-        order = {
-            orderID: getOrderID(),
-            customerName: document.getElementById("customerName").value, // TODO: ADD EVENT LISTENERS
-            telephoneNumber: document.getElementById("telephoneNumber").value,
-            items: [{itemCode: itemCode, quantity: 1}]
-        };
-
-        user.orders.push(order);
-
-    } else {
-        user.orders[index].items = user.orders[index].items.filter((item) => {
-            if (item.itemCode === itemCode) {
-                item.quantity += 1;
-                return item;
-            }
-        });
+    
+    let itemExists = currentOrder.items.some((item) => item.code === itemCode);
+    
+    if (itemExists) {
         
+        currentOrder.items.map((item) => {
+            if (item.code === itemCode) {
+                item.quantity += 1;
+            }
+            return item;
+        });
+    } else {
+        
+        currentOrder.items.push(
+            {
+                code: itemCode,
+                quantity: 1
+            }
+        );
     }
-
-    setCurrentUser(user);
+    
+    setCurrentOrder(currentOrder);
+    removeQuantities();
     
 }
 
@@ -206,16 +213,14 @@ function getOrderID() {
 }
 
 function removeItem(itemCode) {
-    let orderID = getOrderID();
 
-    let user = getCurrentUser();
+    let currentOrder = getCurrentOrder();
 
-    let index = user.orders.findIndex((order) => order.orderID === orderID);
-   
-    user.orders[index].items = user.orders[index].items.filter((item) => item.itemCode !== itemCode);
-    
-    user.orders.splice(index, user.orders[index]);
+    currentOrder.items = currentOrder.items.filter(
+        (item) => item.code !== itemCode
+    );
 
+    setCurrentOrder(currentOrder);
     restoreQuantities();
 }
 
@@ -229,30 +234,31 @@ function placeOrder() {
 
     let currentUser = getCurrentUser();
 
-    localStorage.setItem("lastOrderNumber", getOrderID());
+    console.log("currentUser", currentUser);
+    
+    if (!getCurrentOrder().items) alert("No items added!");
+
+    currentUser.orders.push(getCurrentOrder());
 
     let allUsers = JSON.parse(localStorage.getItem("users"));
-
+    
     let index = allUsers.findIndex((user) => currentUser.email === user.email);
-
+    
     allUsers[index] = currentUser;
-
+    
     localStorage.setItem("users", JSON.stringify(allUsers));
-
     
+    
+    localStorage.setItem("lastOrderNumber", getOrderID());
     updateFoodItems();
-    updateOrderID();
-    clearOrder();
+    resetOrder();
 
-
-    console.log(allUsers);
+    console.log("Order placed:", allUsers);
     
 
 }
 
-function clearOrder() {
-    
-}
+
 
 function updateOrderID() {
     let orderID = document.getElementById("orderID");
@@ -261,9 +267,10 @@ function updateOrderID() {
 }
 
 function resetOrder() {
-    setCurrentUser(
-        JSON.stringify(localStorage.getItem("users")).find((u) => u.email === getCurrentUser().email)
-    );
+    createNewOrder();
+
+    document.getElementById("items").innerHTML = "";
+
 }
 
 function search() {

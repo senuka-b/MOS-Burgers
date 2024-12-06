@@ -72,7 +72,7 @@ function signup() {
         let username = document.getElementById("signupUsername").value;
 
         let newUser = createUser(email, password, username, "customer");
-        setCurrentUser(newUser);
+        setCurrentUser(newUser.email);
 
         redirect("collection");
     }
@@ -110,7 +110,7 @@ function createUser(email, password, username, role) {
 }
 
 function setCurrentUser(user) {
-    localStorage.setItem("currentUser", JSON.stringify(user));
+    localStorage.setItem("currentUser", user);
 }
 
 function logout() {
@@ -118,7 +118,9 @@ function logout() {
 }
 
 function getCurrentUser() {
-    return JSON.parse(localStorage.getItem("currentUser"));
+    let allUsers = JSON.parse(localStorage.getItem("users"));
+    
+    return allUsers.find((user) => user.email === localStorage.getItem("currentUser"))
 }
 
 function redirect(location) {
