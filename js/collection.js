@@ -7,7 +7,6 @@ setup();
 
 function setup() {
     
-
     let username = document.getElementById("username");
     let customerName = document.getElementById("customerName");
 
