@@ -74,7 +74,7 @@ function signup() {
         let newUser = createUser(email, password, username, "customer");
         setCurrentUser(newUser);
 
-        // redirect("collection");
+        redirect("collection");
     }
 
 
@@ -99,7 +99,6 @@ function createUser(email, password, username, role) {
             user
         );
     }
-
 
 
     console.log("USERS: ", JSON.stringify(users));

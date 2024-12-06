@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"">
+<head>
+    <meta charset=" UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOS Burgers 🍔🍉 - Login</title>
+    <link rel="stylesheet" href="../css/tailwind/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+
+</head>
+
+<body class="background-default">
+    <nav>
+        <!-- NAV BAR -->
+        <div class="w-full bg-[#552E2E] bg-opacity-[63%] flex justify-between items-center">
+            <span
+                class="text-4xl sm:text-5xl pl-4 pb-2 transform transition ease-out duration-300 hover:scale-125 hover:shadow-2xl hover:shadow-red-500">🍔</span>
+            <span class="navbar-header sm:text-6xl text-4xl text-white mt-3 "
+                style="text-shadow: 0 0 px #ff1313, 0 0 5px #0000FF;">
+                MOS Burgers
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-12 mr-6 text-white hover:text-gray-200">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </span>
+        </div>
+
+    </nav>
+
+    <main>
+     
+        <p id="username">Username</p>
+
+        <div>
+            <div class="button" onclick="addItem('B1001')">A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+        </div>
+
+        <input id="search" type="text" >
+
+        <div>
+            <h1>Place Order</h1>
+
+            <p id="orderID"> order ID</p>
+            <input id="customerName" type="text" >
+            <input id="telephoneNumber" type="text" >
+
+        </div>
+
+        <div>
+            <ul id="items">
+                
+            </ul>
+        </div>
+
+        <button onclick="placeOrder()" class="button">Place order</button>
+
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/users.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/collection.js"></script>
+</body>
+</html>

@@ -127,8 +127,6 @@ function addEventListeners(){
                 return order;
 
             })
-
-            console.log("user" , user);
             
             setCurrentUser(user);
         }

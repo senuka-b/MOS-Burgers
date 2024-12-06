@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"">
+<head>
+    <meta charset=" UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOS Burgers 🍔🍉 - Signup</title>
+    <link rel="stylesheet" href="../css/tailwind/output.css">
+
+</head>
+
+<body class="background-default">
+    <nav>
+        <!-- NAV BAR -->
+        <div class="w-full bg-[#552E2E] bg-opacity-[63%] flex justify-between items-center">
+            <span
+                class="text-4xl sm:text-5xl pl-4 pb-2 transform transition ease-out duration-300 hover:scale-125 hover:shadow-2xl hover:shadow-red-500">🍔</span>
+            <span class="navbar-header sm:text-6xl text-4xl text-white mt-3 "
+                style="text-shadow: 0 0 px #ff1313, 0 0 5px #0000FF;">
+                MOS Burgers
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-12 mr-6 text-white hover:text-gray-200">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </span>
+        </div>
+
+    </nav>
+
+    <main class="h-screen flex items-center justify-center">
+        <div class="flex flex-col items-center bg-grey-lighter min-h-screen w-full gap-10">
+            <div>
+
+                <div class="w-fit">
+                    <div class="font-madimi text-white text-6xl sm:text-[96px] mt-[84px]">Signup</div>
+                    <div class="bg-white h-4 w-[80%]"></div>
+                </div>
+    
+                <div>
+                    <input id="signupEmail" type="email" class="form-input bg-[#2A2A2A] bg-opacity-[78%] mt-7 w-[394px] h-[66px] rounded-xl text-yellow-500" />
+                    <p>Email</p>
+                </div>
+
+                <div>
+                    <input id="signupPassword" type="password" class="form-input bg-[#2A2A2A] bg-opacity-[78%] mt-7 w-[394px] h-[66px] rounded-xl text-yellow-500" />
+                    <p>Password</p>
+                </div>
+
+                <div>
+                    <input id="signupConfirmPassword" type="password" class="form-input bg-[#2A2A2A] bg-opacity-[78%] mt-7 w-[394px] h-[66px] rounded-xl text-yellow-500" />
+                    <p>Confirm password</p>
+                </div>
+                
+                <button class="button" onclick="signup()">Create Account</button>
+
+                
+            </div>
+
+
+        </div>
+
+        <div class="flex flex-col items-center bg-grey-lighter min-h-screen w-full gap-10 ">
+            <div>
+
+                <div class="w-fit">
+                    <div class="font-madimi text-white text-6xl sm:text-[96px] mt-[84px]">What should we call ypu?</div>
+                    <div class="bg-white h-4 w-[80%]"></div>
+                </div>
+    
+                <div>
+                    <input id="signupUsername" type="text" class="form-input bg-[#2A2A2A] bg-opacity-[78%] mt-7 w-[394px] h-[66px] rounded-xl text-yellow-500" />
+                    <p>username</p>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    
+
+    <script src="../js/users.js"></script>
+</body>
+</html>
