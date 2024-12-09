@@ -50,31 +50,72 @@ function login() {
     }
 }
 
+function promptForUsername(callback) {
+
+    let nameSelector = document.querySelector("#nameSelector");
+    let signupSelector = document.querySelector("#signupSelector");
+    let usernameSubmitButton = document.querySelector("#usernameSubmitButton");
+
+    signupSelector.classList.add("hidden");
+    nameSelector.classList.remove("hidden");
+    nameSelector.classList.add("flex");
+    nameSelector.classList.add("opacity-100");
+
+    let username = document.getElementById("signupUsername");
+
+    usernameSubmitButton.addEventListener("click", function () {
+
+        if (!username.value) {
+            alert("Please enter a username");
+            return;
+        }
+
+        alert("New User created " + username)
+        callback(username);
+
+    });
+
+
+}
+
 function signup() {
     let email = document.getElementById("signupEmail").value.toLowerCase();
     let password = document.getElementById("signupPassword").value;
     let confirm_password = document.getElementById("signupConfirmPassword").value;
 
-    if (password !== confirm_password) {
-        // passwords don't match
+
+    if (!email || !password || !confirm_password) {
+        alert("Please fill out all fields");
         return;
-    } 
+    }
+
+    if (password !== confirm_password) {
+
+        alert("Passwords do not match");
+
+        return;
+    }
 
     let userExists = getUser(email, password) !== undefined;
 
+
     if (userExists) {
         // User exists
-        alert("User exists");
+        alert("User already exists");
 
         return;
     } else {
         // Ask for name
-        let username = document.getElementById("signupUsername").value;
 
-        let newUser = createUser(email, password, username, "customer");
-        setCurrentUser(newUser.email);
+        promptForUsername(function (username) {
 
-        redirect("collection");
+            let newUser = createUser(email, password, username, "customer");
+            setCurrentUser(newUser.email);
+            redirect("collection");
+
+        });
+
+
     }
 
 
@@ -86,7 +127,7 @@ function createUser(email, password, username, role) {
         password: password,
         username: username,
         role: role,
-        orders : []
+        orders: []
     };
 
     let users = JSON.parse(localStorage.getItem("users"));
@@ -102,7 +143,7 @@ function createUser(email, password, username, role) {
 
 
     console.log("USERS: ", JSON.stringify(users));
-    
+
 
     localStorage.setItem("users", JSON.stringify(users));
     return user;
@@ -119,13 +160,13 @@ function logout() {
 
 function getCurrentUser() {
     let allUsers = JSON.parse(localStorage.getItem("users"));
-    
+
     return allUsers.find((user) => user.email === localStorage.getItem("currentUser"))
 }
 
 function redirect(location) {
-    window.location.href = location === "collection" ? "collection.html" : 
-                            location === "dashboard" ? "dashboard.html" :
-                            location === "home" ? "../index.html" : "" ;
+    window.location.href = location === "collection" ? "collection.html" :
+        location === "dashboard" ? "dashboard.html" :
+            location === "home" ? "../index.html" : "";
 }
 
