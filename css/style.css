@@ -40,5 +40,17 @@
         @apply bg-[#FFF562] border border-[#F4A261] w-full px-3 py-1 flex justify-between object-cover
     }
 
+    .stroke::before {
+        content: attr(data-text);
+        position: absolute;
+        pointer-events: none;
+        -webkit-text-stroke: 0px;
+    }
+
+    .stroke {
+
+        position: relative;
+        -webkit-text-stroke: 27px #522A2A;
+    }
 
 }

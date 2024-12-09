@@ -49,10 +49,108 @@
 
     <main class="flex mt-10">
 
-        <div>
+        <div class="w-[90%]">
+
+            <div class="mx-12">
+
+                <div class=" w-fit ">
+                    <div class="font-madimi text-white text-6xl sm:text-[96px] ">The Collection.</div>
+                    <div class="bg-white h-4 w-[70%]"></div>
+                </div>
+
+
+                <input id="search" type="email" placeholder="Search for your food... 🔍"
+                    class="form-input bg-[#79FED4] bg-opacity-[72%] w-full h-12 px-10 py-7 mt-10 text-2xl block rounded-xl text-slate-600" />
+
+
+                <div class="mt-20">
+
+                    <div id="scrollContainer">
+
+                        <!-- Scrollable container containing item carousels with item headers -->
+
+                        <div>
+
+                            <!-- Item header  -->
+                            <div class="flex justify-end w-full">
+
+                                <div class="flex flex-col items-end">
+                                    <h1 class="font-madimi stroke text-[70px]  text-yellow-400 stroke"
+                                        data-text="ITEM-TYPE">
+                                        ITEM-TYPE</h1>
+
+                                    <div class="bg-white text-end h-4 w-[70%]"></div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Swipeable carousel -->
+                            <div>
+                                <div class="w-full">
+                                    <div class="swiper home-page-item-carousel swiper-container relative">
+                                        <div class="swiper-wrapper pt-10 sm:pt-10 pb-10">
+
+                                            <!-- Food items go here -->
+
+                                            <div class="swiper-slide">
+                                                <div
+                                                    class="bg-indigo-50 rounded-2xl h-64 flex overflow-hidden justify-center items-center
+                                                 transform transition ease-in-out duration-300 hover:cursor-pointer hover:opacity-40 hover:scale-75 hover:shadow-lg hover:shadow-red-600">
+                                                    <div class=" flex flex-row items-end pt-60 ">
+                                                        <div class="absolute  pl-7 bg-red-400 bg-opacity-[0.26] w-full">
+
+                                                            <span
+                                                                class="text-[21px] font-itim text-white block">${item.name}</span>
+                                                            <span class="text-[20px] font-itim text-white ">Rs.
+                                                                ${item.price}</span>
+                                                        </div>
+                                                    </div>
+                                                    <img src="../assets/food/beverages/coke.jpg"
+                                                        class="object-cover w-full h-full" alt="">
+
+                                                    
+                                                    <div
+                                                        class="absolute text-green-500 font-bold flex justify-center items-center opacity-0 w-full h-full transition-opacity ease-out duration-300 hover:opacity-100">
+                                                        <div class="text-9xl">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke-width="1.5"
+                                                                class="w-2/3"
+                                                                stroke="currentColor" >
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                                                            </svg>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div>
+        <div class="w-fit pr-10">
 
             <div id="placeOrderForm"
                 class="bg-[#FFE5B4] bg-opacity-[67%] rounded-lg w-[543px] p-5 px-[29px] shadow-lg shadow-black">
@@ -127,9 +225,9 @@
                                 </div>
                             </div>
 
-                            
 
-                        
+
+
 
                         </div>
 
