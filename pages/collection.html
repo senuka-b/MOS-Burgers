@@ -24,9 +24,9 @@
                     style="text-shadow: 0 0 px #ff1313, 0 0 5px #0000FF;">
                     MOS Burgers
                 </span>
-                <div class="flex items-center gap-10">
+                <div class="flex items-center  gap-3 sm:gap-10">
 
-                    <span class="text-white font-sans text-2xl font-bold">
+                    <span class="text-white mx-4 sm:mx-0 font-sans sm:text-2xl font-bold">
                         Logged in as <span id="usernameNavBar" class="text-[#BACC35] font-semibold">User</span>
                     </span>
 
@@ -47,13 +47,103 @@
 
     </nav>
 
-    <main class="flex">
+    <main class="flex mt-10">
+
+        <div>
+        </div>
 
         <div>
 
-        </div>
+            <div id="placeOrderForm"
+                class="bg-[#FFE5B4] bg-opacity-[67%] rounded-lg w-[543px] p-5 px-[29px] shadow-lg shadow-black">
 
-        <div id="placeOrderForm">
+                <div class="font-sans font-extrabold text-2xl ">
+                    Place Order
+                </div>
+
+                <div class="flex flex-col gap-[30px] mt-[54px] ">
+
+                    <div class="flex justify-between items-center">
+                        <p class="font-sans text-start  italic text-2xl opacity-[72%] ">
+                            Order ID :
+                        </p>
+
+
+                        <input id="orderID" type="email" disabled
+                            class="form-input bg-[#2A2A2A] bg-opacity-[78%] w-[345px] h-12   block rounded-2xl text-yellow-500" />
+
+                    </div>
+
+                    <div class="flex justify-between  items-center">
+                        <p class="font-sans text-start text-2xl w-[106px] opacity-[72%] ">
+                            Customer Name :
+                        </p>
+
+
+                        <input id="customerName" type="email"
+                            class="form-input  bg-[#2A2A2A] bg-opacity-[78%] w-[345px] h-12  block rounded-2xl text-yellow-500" />
+
+                    </div>
+
+                    <div class="flex justify-between  items-center">
+                        <p class="font-sans text-start text-2xl w-[106px]  opacity-[72%]">
+                            Telephone Number:
+                        </p>
+
+
+                        <input id="telephoneNumber" type="email"
+                            class="form-input bg-[#2A2A2A] bg-opacity-[78%] w-[345px] h-12  block rounded-2xl text-yellow-500" />
+
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <p class="font-sans text-start text-2xl w-[106px]  opacity-[72%]">
+                            Items :
+                        </p>
+
+                        <div id="itemContainer"
+                            class="w-[348px]  pt-5 bg-[#2A2A2A] bg-opacity-[78%] min-h-[309px] h-[309px] rounded-2xl overflow-hidden overflow-y-scroll ">
+
+                            <!-- Items go here... -->
+
+                            <div class="item">
+                                <div class="flex flex-col ">
+                                    <div class="font-madimi text-xl">
+                                        Food name
+                                    </div>
+                                    <div class="font-madimi opacity-[53%]">
+                                        <span class="text-lg ">Food Type</span>
+                                        <span> . </span>
+                                        <span class="text-sm">USD 12.00</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div onclick="removeItem('')"
+                                        class="bg-red-600 rounded-full font-bold text-white px-4 py-2 text-2xl hover:bg-red-300 hover:text-black hover:cursor-pointer transition ease-out duration-300">
+
+                                        X
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                        
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="flex justify-end items-center gap-4 mt-[82px]">
+                    <div class="button text-2xl bg-[#D3E505] px-7 text-black">Reset Order</div>
+                    <div class="button text-2xl bg-[#07EDA8] px-7 text-black">Place Order</div>
+                </div>
+
+
+            </div>
 
         </div>
 
