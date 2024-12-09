@@ -1,9 +1,19 @@
 
+setup();
+
+function setup() {
+    displayGeneralInformation();
+    displayHistory();
+    displayOrders();
+    displayUsers();
+    displayItems();
+    
+}
 
 // INSIGHTS
 function calculatePopularItemArray() {}
 
-function getGeneralInformation() {
+function displayGeneralInformation() {
 
 }
 
@@ -25,12 +35,20 @@ function deleteOrder() {
 
 }
 
+function displayOrders() {
+
+}
+
 // USERS
 function addUser() {
 
 }
 
 function deleteUser() {
+
+}
+
+function displayUsers() {
 
 }
 
@@ -126,5 +144,9 @@ function deleteItem() {
     }
 
     setFoodItems(items);
+    
+}
+
+function displayItems() {
     
 }
