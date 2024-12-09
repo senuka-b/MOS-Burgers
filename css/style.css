@@ -10,8 +10,9 @@
 @layer components {
     .background-default {
         @apply bg-gradient-to-l from-[#E63946] from-0% to-[#F4A261] to-100%;
-        
+
     }
+
     .navbar-header {
         @apply text-[80px] font-aurore text-white relative;
 
@@ -20,23 +21,20 @@
     .navbar-header::before {
         content: "MOS Burgers";
         position: absolute;
-        top: 0px; 
+        top: 0px;
         left: 0px;
-        color: #d67323; 
+        color: #d67323;
         z-index: -1;
-        text-shadow: 
-            1px 1px 0 #c76220, 
-            2px 2px 0 #b5581d, 
-            3px 3px 0 #a54e1b, 
+        text-shadow:
+            1px 1px 0 #c76220,
+            2px 2px 0 #b5581d,
+            3px 3px 0 #a54e1b,
             4px 4px 0 #943f18;
     }
 
     .button {
-        @apply  rounded-xl h-fit p-2 pl-4 pt-2 pr-12 font-itim text-[#363636]/[.70] text-2xl sm:text-[31px]
-                transition ease-out duration-300 transform hover:scale-105 hover:text-white 
-                hover:shadow-[#E63946] hover:shadow-2xl hover:cursor-pointer flex items-center justify-between
-
+        @apply rounded-xl h-fit p-2 pl-4 pt-2 pr-12 font-itim text-[#363636]/[.70] text-2xl sm:text-[31px] transition ease-out duration-300 transform hover:scale-105 hover:text-white hover:shadow-[#E63946] hover:shadow-2xl hover:cursor-pointer flex items-center justify-between
     }
 
-    
+
 }
