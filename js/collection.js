@@ -7,11 +7,9 @@ setup();
 
 function setup() {
     
-    let username = document.getElementById("username");
-    let customerName = document.getElementById("customerName");
+    let username = document.getElementById("usernameNavBar");
 
     username.innerText = getCurrentUser().username;
-    customerName.value = getCurrentUser().username;
 
     if (!getCurrentOrder()) {
 

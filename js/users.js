@@ -70,8 +70,8 @@ function promptForUsername(callback) {
             return;
         }
 
-        alert("New User created " + username)
-        callback(username);
+        alert("New User created " + username.value)
+        callback(username.value);
 
     });
 

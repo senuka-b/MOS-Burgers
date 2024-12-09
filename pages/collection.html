@@ -2,37 +2,62 @@
 <html lang="en"">
 <head>
     <meta charset=" UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOS Burgers 🍔🍉 - Login</title>
-    <link rel="stylesheet" href="../css/tailwind/output.css">
-    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOS Burgers 🍔🍉 - Login</title>
+<link rel="stylesheet" href="../css/tailwind/output.css">
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
 
 </head>
 
 <body class="background-default">
     <nav>
-        <!-- NAV BAR -->
-        <div class="w-full bg-[#552E2E] bg-opacity-[63%] flex justify-between items-center">
-            <span
-                class="text-4xl sm:text-5xl pl-4 pb-2 transform transition ease-out duration-300 hover:scale-125 hover:shadow-2xl hover:shadow-red-500">🍔</span>
-            <span class="navbar-header sm:text-6xl text-4xl text-white mt-3 "
-                style="text-shadow: 0 0 px #ff1313, 0 0 5px #0000FF;">
-                MOS Burgers
-            </span>
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-12 mr-6 text-white hover:text-gray-200">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </span>
+        <div class="flex relative w-full items-center  bg-[#552E2E] bg-opacity-[63%]">
+
+            <div class="w-2/3">
+                <span
+                    class="text-4xl sm:text-5xl pl-4 pb-2 transform transition ease-out duration-300 hover:scale-125 hover:shadow-2xl hover:shadow-red-500">🍔</span>
+
+            </div>
+
+            <div class="w-full flex justify-between items-center">
+                <span class="navbar-header sm:text-6xl text-4xl text-white mt-3 "
+                    style="text-shadow: 0 0 px #ff1313, 0 0 5px #0000FF;">
+                    MOS Burgers
+                </span>
+                <div class="flex items-center gap-10">
+
+                    <span class="text-white font-sans text-2xl font-bold">
+                        Logged in as <span id="usernameNavBar" class="text-[#BACC35] font-semibold">User</span>
+                    </span>
+
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-12 mr-6 text-white hover:text-gray-200">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+
         </div>
+        </div>
+
 
     </nav>
 
-    <main>
-     
-        <p id="username">Username</p>
+    <main class="flex">
+
+        <div>
+
+        </div>
+
+        <div id="placeOrderForm">
+
+        </div>
+
+        <!-- <p id="username">Username</p>
 
         <div>
             <div class="button" onclick="addItem('B1001')">A</div>
@@ -58,13 +83,14 @@
             </ul>
         </div>
 
-        <button onclick="placeOrder()" class="button">Place order</button>
+        <button onclick="placeOrder()" class="button">Place order</button> -->
 
     </main>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../js/users.js"></script>
     <script src="../js/data.js"></script>
     <script src="../js/collection.js"></script>
 </body>
+
 </html>
