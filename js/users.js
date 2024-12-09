@@ -31,7 +31,7 @@ function login() {
 
     if (user == undefined) {
         // No user found
-        alert("No user found")
+        alert("Invalid email and/or password!");
 
     } else {
         // User found, redirect to dashboard/collection

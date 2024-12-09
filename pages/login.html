@@ -2,9 +2,9 @@
 <html lang="en"">
 <head>
     <meta charset=" UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOS Burgers 🍔🍉 - Login</title>
-    <link rel="stylesheet" href="../css/tailwind/output.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOS Burgers 🍔🍉 - Login</title>
+<link rel="stylesheet" href="../css/tailwind/output.css">
 
 </head>
 
@@ -31,34 +31,75 @@
 
     <main class="h-screen flex items-center justify-center">
         <div class="flex flex-col items-center bg-grey-lighter min-h-screen w-full gap-10">
-            <div>
+            <div class="px-40">
 
                 <div class="w-fit">
                     <div class="font-madimi text-white text-6xl sm:text-[96px] mt-[84px]">Login</div>
                     <div class="bg-white h-4 w-[80%] mt-2"></div>
                 </div>
-    
+
                 <div>
-                    <input id="loginEmail" type="email" class="form-input bg-[#2A2A2A] bg-opacity-[78%] mt-7 w-[394px] h-[46px] rounded-xl text-yellow-500" />
-                    <p class="block sm:inline-block">Email</p>
+                    <input id="loginEmail" type="email"
+                        class="form-input bg-[#2A2A2A] bg-opacity-[78%] mt-7  w-full sm:w-[394px] h-[66px] rounded-xl text-yellow-500" />
+
+
+                    <p
+                        class="sm:inline-block block sm:mt-4 sm:ml-4 font-madimi text-start text-2xl sm:text-[36px] text-white">
+                        Email</p>
                 </div>
 
                 <div>
-                    <input id="loginPassword" type="password" class="form-input bg-[#2A2A2A] bg-opacity-[78%] mt-7 w-[394px] h-[46px] rounded-xl text-yellow-500" />
-                    <p class="block sm:inline-block">Password</p>
-                </div>
-                
-                <button class="button" onclick="login()">login</button>
-                <a href="/signup.html">Don't have an account yet?</a>
+                    <input id="loginPassword" type="email"
+                        class="form-input bg-[#2A2A2A] bg-opacity-[78%] mt-7  w-full sm:w-[394px] h-[66px] rounded-xl text-yellow-500" />
 
-                
+
+                    <p
+                        class="sm:inline-block block sm:mt-4 sm:ml-4 font-madimi text-start text-2xl sm:text-[36px] text-white">
+                        Password</p>
+                </div>
+
+                <div class="mt-4">
+                    <div class="sm:w-[394px] block sm:inline-flex justify-end items-center gap-4">
+
+                        <a href="/pages/signup.html" class="text-white underline hover:text-[#07EDA8]  transition ease-out duration-300 ">Don't have an account yet?</a>
+
+                        <button
+                            class="button sm:w-[175px] w-80  sm:p-1 p-1 flex justify-center mt-4 sm:m-0 bg-[#07EDA8] hover:shadow-[#07EDA8] rounded-3xl"
+                            class="text-center" onclick="login()">
+
+
+                            <svg class="" width="42" height="42" viewBox="0 0 42 42" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="42" height="42" fill="url(#pattern0_12_245)" />
+                                <defs>
+                                    <pattern id="pattern0_12_245" patternContentUnits="objectBoundingBox" width="1"
+                                        height="1">
+                                        <use xlink:href="#image0_12_245" transform="scale(0.0208333)" />
+                                    </pattern>
+                                    <image id="image0_12_245" width="48" height="48"
+                                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAGQUlEQVR4Ae3BYWicdx3A8e/v/zzNTrjaSwnsXlx6hxQZc7BU2yW3hVpwpSnttjqDZlBYh6kVLcwXAzft4A59IVixg6lIG7oyR5zatWNKU9iwZVfu0kYqUqGDKM/FKKcGedIdcrTP/X+m5MJzvaZpcnfpGPj58HEntFk+qSmUlECXKlEEV6CkMKOG0qOeeLSR0KJCt3apMAjsQOkD4ixtBmEMeG+NMLa5KCVaIDQpv0F3A8+i7AYiNEs4LcKP+oqSownCCuWT2oPyY5RttJNwDuHldFFyrICwTBdTGlXLD60yDLg0Ev7iCO9WlQkRCiqUIzBdAReIiyWhkAAGUAaA+7ldIMIRNbyc9qTCMgjLUNigCYV3UHq4VdkIb6rwWl9RcqxAIak9onzLKl8BItQTrgJfTE/JVe5CuItLSe0LLKeAOHWMcMIqL6b/JiVakO/WuAiHVDkAuIRKrmH7lqJcYQnCEi4l9aHAkgeihCYxPJMuygRtlE9qP5bXgRShcofDzs95kuMOHO4g361xq1wA1lMjwnnjsKOvKJO02chsdurA+syIwMMKn2ZeR1V5ejiWeXNkNuuzCIdF5FMaQXkf+BQ1Rjh5n+HJzZ6UWSVH/ez1b3ZmfmXhMwoPMi+C0H+wM3P8537W0sCwCLEcAh6iRoQL1rB3kycBq2yTJ0GHYQjhLAuUzZUqh1mEocFEUntU+TYhTwx70p5UuEc2eRIYw15gmtDzl1LaRQNDgxvKzwCXGmN4rteTGe6xXk9mMDwDBMzzFSo0cKhTSOrjKN+hxggneqfkCB+Rkdns1Nc6M79X4d+u8NIjRfFo4FJHlYOEKhheoB1iGsGXCk3oLUoOyHEHLjUTSU3dsOyixghv9HoyQyti6lLV4wS6l7U2hyPb8aVCGxlqblj2AC41VniVVsTUpaqjKHu5SeknsH20mWGB0E/og3RR/kizYupS1VGUQUI+Yq7SZoYFymPUiCFHs2LqUtVRlEFCZRx5gg+lRJsZ5oynNAHEqVElRzNi6lLVUZRBQmUc2cms5FgFhjnWkqCOwCQrFVOXqo6iDBIq48hOZiXHKnGZF6WOGqZZiZhGsHoKZYBblajyPaJK2wgBome5Zg4zx+UmJUEdF8qsRKDfAAa43UbQjbSTAsrjrNUrfChjhkUEEPAx4XKTMI1SLwb4LJcrP8WyHasD3GoS+DvtJAQIY1yTMea4zCtTRywJwGO5fKkQ0ydQfonyJUJxHHmOWcmxSgxzjGGaOgobWSlfAhwZQjhJKEpVz7BO+1klhjm9nkwD/6RGhH6a4UuAI0MIJwlFqeoZ1mk/q8BQI8I5alR5jGb5EuDIEMJJQlGq+g5rNU6bGWpUKbBAeSCf1B6a5UuAI0MIJwnFUPsAbWaoWWM4DQTUGOUgrfAlwJEhhDe4SbiAawq0mVAnv0FPozzFvIpx6O71ZIZWxTSCLxVWgUsdEV5V5SnmRbAcBvbRKl8qNKmQ1G0KAy78ZktRJmjgUOfYbPavw7HMTiDBHIWe/Z2Z88dmsx4fgXxS+7G8h7LVKl8+sD7zk6N+9jp1DA1cYRgIqFHL8fGUdnGPjae0C8so4DIvJhChgUODo7PZf+2PZe4DtjIvpvDocGdmdMTPBtwDl1Pq3rD8GvgsoVd6p+QtGhgWoYbvA39mgdJvLK9fTqnLKrucUve6ZRRlgAXCHyIOL7AIh0WM+NlgeF3mLWAI+CRzFB6swtb9nZnfHfOz/2UVXExp9IbllCpPEvIRvrClKP9hEQ53MHItWx6OZc4A+4AO5qVUeXp/ZyZ/bDb7D9qokNRt1nIW2Eyo3GHY9ciU/Ik7EO7iUlL7AsspIE4dI7xm4aX0lJRoQX6DxgW+q8rXAZdQyTVs31KUKyxBWIbCBk0Av1XlYW5VMcIvFE70TUmOFRhPag/K81YZAiLUEz4A9qSn5Cp3ISzTxZRG1XLYKl8FXBoJk8A5gXEVJlTwPwHTFXAV4saSUEgAO1AGgDi3C0R4RQ2H0p5UWAZhhfJJ7UE5gvJ52kk4j/BiuigFVkBoUr5bdyPsQ9kFRGiW8DbCD9JFKdAEoUXjKe2ylkFgAKUPuJ+lzSCcBcbWGN7d7EmJFghtVkhpQi0bgS6UKDcJM8AMhlLaE4//C/0P9HVmu83O2KIAAAAASUVORK5CYII=" />
+                                </defs>
+                            </svg>
+
+
+                        </button>
+                    </div>
+                    <p
+                        class="sm:inline-block block sm:mt-4 sm:ml-4 font-madimi text-start text-2xl sm:text-[36px] text-white">
+                        Login 🎉</p>
+
+
+                </div>
+
+
             </div>
 
 
         </div>
     </main>
-    
+
 
     <script src="../js/users.js"></script>
 </body>
+
 </html>
