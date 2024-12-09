@@ -58,11 +58,17 @@ setFoodItems();
 
 function setFoodItems(data) {
     let items = localStorage.getItem("foodItems");
-
-    console.log("Setfooditems data", data);
     
+    if (!items) {
+        data = sampleFoodItems;
+    } else {
+        if (!data) {
+            data = getFoodItems();
+        }
+    }
 
-    localStorage.setItem("foodItems", JSON.stringify((items === null && data === undefined) ? sampleFoodItems : data));
+
+    localStorage.setItem("foodItems", JSON.stringify(data));
 
 }
 

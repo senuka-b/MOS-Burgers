@@ -21,6 +21,7 @@ function setup() {
     addEventListeners();
     updateOrderID();
     updateItems();
+    adjustQuantities();
     initalizeSwipers();
 }
 
@@ -78,6 +79,14 @@ function createNewOrder() {
     updateOrderID();
 }
 
+function adjustQuantities() { 
+    // This function adjusts the current food item quantities in accordance
+    // with the current order. So item quantity validations would still work
+    // upon refreshes.
+
+    removeQuantities(true);
+}
+
 function updateItems() {
     let itemList = document.getElementById("items");
     itemList.innerHTML = "";
@@ -89,7 +98,7 @@ function updateItems() {
     });
 }
 
-function removeQuantities() {
+function removeQuantities(adjust) {
 
     let currentOrder = getCurrentOrder();
 
@@ -99,7 +108,7 @@ function removeQuantities() {
             foodCategory.forEach((item, index) => {
 
                 if (item.code === uItem.code) {
-                    currentFoodItems[category][index].quantity -= 1;
+                    currentFoodItems[category][index].quantity -= adjust ? uItem.quantity : 1;
 
                     console.log("currentFoodItems quantity remove:", currentFoodItems);
 
