@@ -23,6 +23,10 @@ function getUser(email, password) {
     return allUsers == null ? undefined : JSON.parse(allUsers).find((u) => u.email === email && u.password === password);
 }
 
+function getAllUsers() {
+    return JSON.parse(localStorage.getItem("users"));
+}
+
 function login() {
     let email = document.getElementById("loginEmail").value;
     let password = document.getElementById("loginPassword").value;
@@ -37,7 +41,7 @@ function login() {
         // User found, redirect to dashboard/collection
         alert("user found");
 
-        setCurrentUser(user);
+        setCurrentUser(user.email);
 
         if (user.role === "customer") {
             redirect("collection");
@@ -156,6 +160,7 @@ function setCurrentUser(user) {
 
 function logout() {
     localStorage.removeItem("currentUser");
+    window.location.href = "../../index.html";
 }
 
 function getCurrentUser() {
@@ -166,7 +171,13 @@ function getCurrentUser() {
 
 function redirect(location) {
     window.location.href = location === "collection" ? "collection.html" :
-        location === "dashboard" ? "dashboard.html" :
+        location === "dashboard" ? "dashboard/index.html" :
             location === "home" ? "../index.html" : "";
 }
 
+function getAllOrders() {
+    let allUsers = JSON.parse(localStorage.getItem("users"));
+
+    return allUsers.map((user) => user.orders).flat();
+
+}

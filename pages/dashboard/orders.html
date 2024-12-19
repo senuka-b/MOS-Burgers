@@ -1,11 +1,73 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Orders</title>
+    <link rel="stylesheet" href="../../css/tailwind/output.css">
 </head>
-<body>
-    
+
+<body class="md:background-default">
+
+    <main>
+
+        <div class="p-10 m-6 w-full h-screen bg-white bg-opacity-[10%] text-white">
+            <h1 class="text-5xl font-madimi font-bold py-6">Manage Orders</h1>
+
+            <div>
+
+
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Order #
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Customer Name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Telephone Number
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Total
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTableBody">
+
+
+
+                            <!-- ORDERS GO HERE -->
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <script src="../../js/users.js"></script>
+        <script src="../../js/dashboard.js"></script>
+
+        <script>
+            displayOrders();
+        </script>
+
+
+    </main>
+
 </body>
+
 </html>
