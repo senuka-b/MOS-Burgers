@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="../../css/tailwind/output.css">
+</head>
+
+<body class="md:background-default">
+
+    <main id="reportContainer">
+        <script>
+            let container = document.getElementById('reportContainer');
+
+            let reports = ["Customer", "Order", "Item", "User"]
+
+            reports.forEach(item => {
+                container.innerHTML += `
+                 <div class="m-10 border">
+                    
+                    <h1 class="font-madimi text-5xl text-white m-10">${item} Reports</h1>
+                    
+                    <div class="flex p-3 gap-10">
+            
+                        <button class="button bg-[#2ec8e3] text-2xl flex justify-center" onclick="saveToDisk('${item.toLowerCase()}')">Save to Disk 💾</button>
+                        <button class="button bg-[#2ee2bb] text-2xl flex justify-center" onclick="viewReport('${item.toLowerCase()}')">View report 👀</button>
+
+                    </div>
+                </div>
+                
+                `
+            });
+
+        </script>
+       
+
+     
+    </main>
+
+</body>
+
+</html>

@@ -82,7 +82,7 @@ function displayItems() {
                     </td>
                     <td class="px-6 py-4 flex justify-evenly">
                         <a
-                            class="font-bold text-yellow-600  dark:text-yellow-500 hover:underline hover:cursor-pointer">Edit
+                            class="font-bold text-yellow-600  dark:text-yellow-500 hover:underline hover:cursor-pointer" onclick="showEditItemPopup('${JSON.stringify(item).replace(/"/g, '&quot;')}', '${category}')">Edit
                             Item</a>
                         <a
                             class="font-bold text-red-600 dark:text-red-500 hover:underline hover:cursor-pointer" onclick="activatePopup('${item.code}')">Delete
@@ -146,9 +146,10 @@ function displayOrders() {
 function addUser() {
     document.getElementById("addUserPopup").classList.remove("hidden");
 
-    document.getElementById("addUserConfirm").addEventListener("click", function () {
+    document.getElementById("modal-title").innerHTML = "Add User";
+    document.getElementById("addUserConfirm").innerHTML = "Create User";
 
-        console.log("Hi");
+    document.getElementById("addUserConfirm").addEventListener("click", function () {
 
 
         createUser(
@@ -203,7 +204,8 @@ function displayUsers() {
             </td>
             <td class="px-6 py-4 flex justify-around">
                 <a
-                    class="font-bold text-yellow-600  dark:text-yellow-500 hover:underline hover:cursor-pointer">Edit
+                    class="font-bold text-yellow-600  dark:text-yellow-500 hover:underline hover:cursor-pointer"
+                    onclick="showEditUserPopup('${JSON.stringify(user).replace(/"/g, '&quot;')}')">Edit
                     User</a>
                 <a
                     onclick="deleteUser('${user.email}', '${user.password}')"
@@ -216,6 +218,38 @@ function displayUsers() {
         `;
     })
 
+
+}
+
+function showEditUserPopup(user) {
+
+    user = JSON.parse(user);
+
+    document.getElementById("addUserPopup").classList.remove("hidden");
+    document.getElementById("modal-title").innerHTML = "Edit User";
+    document.getElementById("addUserConfirm").innerHTML = "Edit User";
+
+    document.getElementById("userEmailInput").value = user.email;
+    document.getElementById("userPasswordInput").value = user.password;
+    document.getElementById("userNameInput").value = user.username;
+    document.getElementById("userRoleInput").value = user.role;
+
+    document.getElementById("addUserConfirm").addEventListener("click", function () {
+
+        editUser(
+            document.getElementById("userEmailInput").value,
+            document.getElementById("userPasswordInput").value,
+            document.getElementById("userNameInput").value,
+            document.getElementById("userRoleInput").value,
+        )
+
+        displayUsers();     
+        dismissAddUserPopup();
+
+}, { once: true });
+}
+
+function editUser(email, password, username, role) {
 
 }
 
@@ -369,6 +403,11 @@ function createItem(code, name, price, discount, expiryDate, quantity, category)
 function showCreateItemPopup() {
     document.getElementById("createItemPopup").classList.remove("hidden");
 
+    document.getElementById("modal-title").innerHTML = "Create Item";    
+    document.getElementById("createItemConfirm").innerHTML = "Create Item";
+
+
+
     document.getElementById("createItemConfirm").addEventListener("click", function () {
 
         createItem(
@@ -389,4 +428,61 @@ function showCreateItemPopup() {
 function dismissCreateItemPopup() {
     document.getElementById("createItemPopup").classList.add("hidden");
 
+}
+
+
+function showEditItemPopup(item, category) {
+
+    document.getElementById("modal-title").innerHTML = "Edit Item";    
+    document.getElementById("createItemConfirm").innerHTML = "Edit Item";
+
+    item = JSON.parse(item);
+
+    document.getElementById("createItemPopup").classList.remove("hidden");
+    
+    let itemCode = document.getElementById("itemCodeInput");
+    let itemName = document.getElementById("itemNameInput");
+    let itemPrice = document.getElementById("itemPriceInput");
+    let itemDiscount = document.getElementById("itemDiscountInput");
+    let itemExpiry = document.getElementById("itemExpiryInput");
+    let itemQuantity = document.getElementById("itemQuantityInput");
+    let itemCategory = document.getElementById("itemCategoryInput");
+
+    itemCode.value = item.code;
+    itemName.value = item.name;
+    itemPrice.value = item.price;
+    itemDiscount.value = item.discount;
+    itemExpiry.value = item.expiryDate;
+    itemQuantity.value = item.quantity;
+    itemCategory.value = category;
+
+    document.getElementById("createItemConfirm").addEventListener("click", function () {
+
+        editItem(
+            itemCode.value,
+            itemName.value,
+            itemPrice.value,
+            itemDiscount.value,
+            itemExpiry.value,
+            itemQuantity.value,
+            itemCategory.value
+        )
+
+        itemCode.value = "";
+        itemName.value = "";
+        itemPrice.value = "";
+        itemDiscount.value = "";        
+        itemExpiry.value = "";
+        itemQuantity.value = "";
+        itemCategory.value = "";
+
+        displayItems();
+        dismissCreateItemPopup();
+    }, { once: true });
+
+
+}
+
+function editItem(code, name, price, discount, expiryDate, quantity, category) {
+    
 }

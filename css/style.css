@@ -70,4 +70,8 @@
         /* Firefox */
     }
 
+    * {
+        scrollbar-color: rgb(195, 243, 6) rgb(104, 2, 2);;
+      }
+
 }
